@@ -1,0 +1,11 @@
+<nav class="py-0 pl-0 navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="p-0 navbar-brand" href="/">
+        <% if (locals.brandingURL) { %>
+            <img src="<%= brandingURL %>"
+                 width="222" height="57" alt="Mainroom" >
+        <% } else { %>
+            <p class="p-3 m-0">Mainroom</p>
+        <% } %>
+    </a>
+    <div class="collapse navbar-collapse"></div>
+</nav>

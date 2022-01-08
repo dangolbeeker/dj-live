@@ -1,0 +1,56 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <% if (locals.faviconURL) { %>
+        <link rel="icon" type="image/png" href="<%= faviconURL %>"/>
+    <% } %>
+
+    <% if (locals.siteName) { %>
+        <meta property="og:site_name" content="<%= siteName %>">
+    <% } %>
+
+    <% if (locals.title) { %>
+        <title><%= title %></title>
+        <meta property="og:title" content="<%= title %>">
+    <% } %>
+
+    <% if (locals.description) { %>
+        <meta property="og:description" content="<%= description %>">
+    <% } %>
+
+    <% if (locals.imageURL) { %>
+        <meta property="og:image" content="<%= imageURL %>">
+    <% } %>
+
+    <% if (locals.secureImageURL) { %>
+        <meta property="og:image:secure_url" content="<%= secureImageURL %>">
+    <% } %>
+
+    <% if (locals.imageAlt) { %>
+        <meta name="og:image:alt" content="<%= imageAlt %>">
+        <meta name="twitter:image:alt" content="<%= imageAlt %>">
+    <% } %>
+
+    <% if (locals.videoURL) { %>
+        <meta name="og:video" content="<%= videoURL %>">
+        <meta name="twitter:player:stream" content="<%= videoURL %>">
+    <% } %>
+
+    <% if (locals.secureVideoURL) { %>
+        <meta name="og:video:secure_url" content="<%= secureVideoURL %>">
+    <% } %>
+
+    <% if (locals.videoMimeType) { %>
+        <meta name="og:video:type" content="<%= videoMimeType %>">
+    <% } %>
+
+    <% if (locals.twitterCard) { %>
+        <meta name="twitter:card" content="<%= twitterCard %>">
+    <% } %>
+
+    <link rel="stylesheet" href="/main.style.css">
+    <script data-ad-client="ca-pub-4429442604107930" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>

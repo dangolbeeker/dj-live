@@ -1,0 +1,15 @@
+# ignore Jetbrains files
+.idea
+
+# ignore static files
+public
+
+# ignore Node files
+node_modules
+npm-debug.log
+
+# ignore test coverage
+coverage/
+
+# ignore environment variables
+*.env

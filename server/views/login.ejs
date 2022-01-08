@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<% include header.ejs %>
+<body>
+<% include navbar.ejs %>
+
+<div class="container app mt-5">
+    <div class="row">
+        <div class="col-sm-2 col-md-3"></div>
+        <div class="col-sm-8 col-md-6">
+            <h4>Log in to Mainroom</h4>
+            <hr class="my-4">
+            <form action='/login' method="post">
+                <div class="form-group">
+                    <label for="usernameOrEmail">Username or email address</label>
+                    <input id="usernameOrEmail" name="usernameOrEmail" type="text" class="form-control" required tabindex="1">
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="password">Password</label>
+                        <a class="float-right" href="/forgot-password">Forgot password?</a>
+                    </div>
+                    <input id="password" type="password" name="password" class="form-control" required tabindex="2">
+                    <% if (errors.login.length) { %>
+                        <small class="form-text text-danger"><%= errors.login %></small>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    Don't have an account? Register <a href="/register">here</a>.
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block mb-5" tabindex="3">Log In</button>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <input type="hidden" name="redirectTo" value="<%= redirectTo %>" />
+            </form>
+        </div>
+        <div class="col-sm-2 col-md-3"></div>
+    </div>
+</div>
+
+<% include footer.ejs %>
+</body>
+</html>

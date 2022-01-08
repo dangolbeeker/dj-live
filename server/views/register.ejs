@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<% include header.ejs %>
+<body>
+<% include navbar.ejs %>
+
+<div class="container app mt-5">
+    <div class="row">
+        <div class="col-sm-2 col-md-3"></div>
+        <div class="col-sm-8 col-md-6">
+            <h4>Create Mainroom account</h4>
+            <hr class="my-4">
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" class="form-control"
+                           maxlength="<%= usernameMaxLength %>" required tabindex="1">
+                    <% if (errors.username.length) { %>
+                        <small class="form-text text-danger"><%= errors.username %></small>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input id="email" type="email" name="email" class="form-control" required tabindex="2">
+                    <% if (errors.email.length) { %>
+                        <small class="form-text text-danger"><%= errors.email %></small>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" class="form-control" required tabindex="3"
+                           minlength="<%= passwordMinLength %>" maxlength="<%= passwordMaxLength %>">
+                    <% if (errors.password.length) { %>
+                        <% errors.password.forEach(error => { %>
+                            <small class="d-block text-danger"><%= error %></small>
+                        <% }) %>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" type="password" name="confirmPassword"
+                           minlength="<%= passwordMinLength %>" maxlength="<%= passwordMaxLength %>"
+                           class="form-control" required tabindex="4">
+                    <% if (errors.confirmPassword.length) { %>
+                        <small class="form-text text-danger"><%= errors.confirmPassword %></small>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    <div class="leader">
+                        Have an account? Log in <a href="/login">here</a>.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block mb-5" tabindex="5">Register</button>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="hidden" name="redirectTo" value="<%= redirectTo %>" />
+            </form>
+        </div>
+        <div class="col-sm-2 col-md-3"></div>
+    </div>
+</div>
+
+<% include footer.ejs %>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "mainroom-container",
+      "image": "523857005791.dkr.ecr.eu-west-1.amazonaws.com/mainroom:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        },
+        {
+          "containerPort": 1935,
+          "hostPort": 1935,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environmentFiles": [
+        {
+          "value": "arn:aws:s3:::mainroom-environment-files/mainroom-ecs.env",
+          "type": "s3"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "MONGODB_CONNECTION_STRING",
+          "valueFrom": "MONGODB_CONNECTION_STRING"
+        },
+        {
+          "name": "RTMP_SERVER_API_PASSWORD",
+          "valueFrom": "RTMP_SERVER_API_PASSWORD"
+        },
+        {
+          "name": "RTMP_SERVER_API_USERNAME",
+          "valueFrom": "RTMP_SERVER_API_USERNAME"
+        },
+        {
+          "name": "SESSION_SECRET",
+          "valueFrom": "SESSION_SECRET"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "mainroom-logs",
+          "awslogs-region": "eu-west-1"
+        }
+      }
+    }
+  ],
+  "family": "mainroom-task-definition",
+  "taskRoleArn": "ecsTaskExecutionRole",
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "cpu": "2048",
+  "memory": "953"
+}

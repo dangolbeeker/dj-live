@@ -1,0 +1,28 @@
+# ignore Jetbrains files
+.idea
+
+# ignore static files
+public
+
+# ignore node files
+node_modules
+npm-debug.log
+
+# ignore test files
+test
+coverage
+jest.config.js
+jest.init.js
+
+# ignore environment variables
+.env
+
+# ignore Github Actions workflows
+.github
+
+# ignore Git files
+.git
+.gitignore
+
+# ignore ECS Task Definition
+ecs-task-definition.json

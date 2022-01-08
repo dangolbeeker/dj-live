@@ -1,0 +1,326 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/bootstrap/scss/_functions.scss';
+@import '../node_modules/bootstrap/scss/_variables.scss';
+@import '../node_modules/bootstrap/scss/mixins/_breakpoints.scss';
+@import '../node_modules/video.js/dist/video-js.css';
+@import '../node_modules/react-calendar-timeline/lib/Timeline.css';
+
+html, body, #root {
+    background-color: #F9F9F9;
+    height: 100%;
+}
+
+a {
+    color: #c80000;
+}
+
+a:hover {
+    color: darkred;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+}
+
+.rounded-border {
+    border-width: 1.5px;
+    border-radius: 3px;
+}
+
+.btn-dark:disabled {
+    color: gray !important;
+    font-style: italic;
+}
+
+.btn-dark:hover:not(.disabled) {
+    background-color: darkred !important;
+    border-color: darkred !important;
+}
+
+i {
+    font-size: 14px;
+}
+
+.margin-bottom-thick {
+    margin-bottom: 30px !important;
+}
+
+.stream {
+    .live-label {
+        position: absolute;
+        top: 6px;
+        left: 20px;
+        background-color: red;
+        color: white;
+        font-size: 14px;
+        padding: 1px 5px;
+        border-radius: 3px;
+    }
+
+    .view-count {
+        position: absolute;
+        top: 6px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 14px;
+        padding: 1px 5px;
+        border-radius: 3px;
+    }
+
+    .video-duration {
+        position: absolute;
+        top: 6px;
+        left: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 14px;
+        padding: 1px 5px;
+        border-radius: 3px;
+    }
+}
+
+.dropdown {
+    .btn-secondary {
+        color: white;
+        background-color: #343a40;
+        border-color: #343a40;
+    }
+}
+
+.navbar-dropdown,
+.navbar-dropdown-no-bkg-on-hover {
+    .btn {
+        padding: 0.375rem;
+    }
+
+    .btn-secondary {
+        color: rgba(255, 255, 255, 0.5);
+        background-color: #343a40;
+        border-color: #343a40;
+    }
+}
+
+.navbar-dropdown {
+    .btn-secondary:hover {
+        background-color: #545b62 !important;
+        border-color: #4e555b !important;
+    }
+}
+
+.navbar-dropdown-no-bkg-on-hover {
+    .btn-secondary:hover {
+        color: white;
+        background-color: #343a40 !important;
+        border-color: #343a40 !important;
+    }
+}
+
+.dropdown-hover-darkred {
+    .btn-secondary:hover {
+        background-color: darkred !important;
+        border-color: darkred !important;
+    }
+}
+
+.black-link {
+    a {
+        color: black;
+    }
+
+    a:hover {
+        color: darkred;
+        text-decoration: none;
+    }
+}
+
+.profile-pic {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .change-profile-pic-btn {
+        position: absolute;
+        width: 75%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 90%;
+    }
+}
+
+.remove-margin-r {
+    margin-right: 0 !important;
+}
+
+.remove-padding-lr,
+.remove-padding-l {
+    padding-left: 0 !important;
+}
+
+.remove-padding-lr,
+.remove-padding-r {
+    padding-right: 0 !important;
+}
+
+.chat-messages {
+    overflow-wrap: break-word;
+    background-color: white;
+}
+
+.chat-messages,
+.hide-scrollbar {
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat-messages::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-input {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+
+    textarea {
+        width: calc(100% - 90px);
+        height: 100%;
+        border-width: 1.5px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        resize: none;
+    }
+
+    button {
+        width: 90px;
+        height: 100%;
+        border-width: 2px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .search-box {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0.25rem !important;
+    }
+
+    .search-button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0.25rem !important;
+    }
+
+    .stream-sidebar {
+        padding-left: 0 !important;
+    }
+
+    .w-50-md {
+        width: 50% !important;
+    }
+
+    .w-25-md {
+        width: 25% !important;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .search-box {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .search-button {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .stream-sidebar {
+        padding-right: 0 !important;
+        background-color: white;
+    }
+}
+
+@include media-breakpoint-up(xs) {
+    .w-100-xs {
+        width: 100%;
+    }
+
+    .w-50-xs {
+        width: 50%;
+    }
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.options-dropdown {
+    .btn-secondary,
+    .btn-secondary:not(:disabled):not(.disabled):active,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show > .btn-secondary.dropdown-toggle {
+        color: #6e6e6e !important;
+        background-color: #0000 !important;
+        border-color: #0000 !important;
+    }
+    .btn-secondary:hover {
+        color: #4f4f4f !important;
+        background-color: #0000 !important;
+        border-color: #0000 !important;
+    }
+}
+
+@font-face {
+    font-family: 'password';
+    font-style: normal;
+    src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);
+}
+
+.obfuscate-text {
+    font-family: 'password';
+}
+
+.pr-40 {
+    padding-right: 40px;
+}
+
+.tab-nav-link,
+.active-tab-nav-link {
+    cursor: pointer;
+    background-color: #F9F9F9 !important;
+}
+
+.tab-nav-link {
+    border-bottom-color: #dee2e6 !important;
+}
+
+.active-tab-nav-link {
+    border-bottom-color: #F9F9F9 !important;
+}
+
+.event-banner {
+    max-height: 200px;
+    width: 100% !important;
+}
